@@ -14,5 +14,12 @@ clear all; format long; clc
 % STEP 3: Calculating the performance function G (X)
     G = 1 - 80./(X1.^2+8*X2+5);
 
+    L = G(G < 0);
+    U = G(G>= 0);
+    histogram(L)
+    hold on;
+    histogram(U)
+
 % STEP 4: Estimate Reliability
     PoF = sum(G>0)/N
+
