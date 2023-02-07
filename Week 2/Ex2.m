@@ -7,7 +7,7 @@ N = 1000000;
 
 % STEP 2: Converting the sample to Normal Distribution
 X1 = normrnd(3.5, 0.5, N, 1);
-X2 = normrnd(3.8, 0.5^2, N, 1);
+X2 = normrnd(3.8, 0.5, N, 1);
 
 % STEP 3: Calculating the performance function G (X)
 G = 1 - ((X1 + X2 - 5).^2)/30 - ((X1 - X2 - 12).^2)/120;
@@ -25,7 +25,7 @@ fprintf("P1 MCS: PoF: %f\n", PoF);
 
 %% FORM Computation
 mu = [3.5, 3.8];
-stdx = [0.5, 0.5^2];
+stdx = [0.5, 0.5];
 
 G = @(x)1 - ((x(1) + x(2) - 5).^2)/30 - ((x(1) - x(2) - 12).^2)/120;
 DG1 = @(x) 1/60 * (32 - 5 * x(1) - 3 * x(2));
@@ -52,8 +52,8 @@ w = 2; % inches
 t = 4; % inches
 
 % STEP 2: Converting the sample to Normal Distribution
-X1 = normrnd(500, 100^2, N, 1);
-X2 = normrnd(1000, 100^2, N, 1);
+X1 = normrnd(500, 100, N, 1);
+X2 = normrnd(1000, 100, N, 1);
 
 % STEP 3: Calculating the performance function G (X)
 G = 4 * L^3/(E * w * t) * sqrt((X1 / w^2).^2 + (X2 / t^2).^2) - D0;
@@ -77,7 +77,7 @@ L = 100; % inches
 w = 2; % inches
 t = 4; % inches
 mu = [500, 1000];
-stdx = [100^2, 100^2];
+stdx = [100, 100];
 
 G = @(x)4 * L^3/(E * w * t) * sqrt((x(1) / w^2).^2 + (x(2) / t^2).^2) - D0;
 DG1 = @(x) 4 * L^3 * x(1)/ (E * t * w^5 * sqrt(x(1).^2/w^4 + x(2).^2/t^4));
