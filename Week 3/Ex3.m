@@ -96,7 +96,7 @@ function [g,DG]=cons(u,d,kc)
         DG(3) = 6 * L / (S0 * t * w^2);
         DG(4) = 6 *L / (S0 * t^2 * w);
     elseif kc == 2
-        g=4 *L^3 * sqrt(Py^2 / t^4 + Px^2/w^2) / (D0 * E * t * w)-1;
+        g=4 *L^3 * sqrt(Py^2 / t^4 + Px^2/w^4) / (D0 * E * t * w)-1;
         DG(1)=-4 * L^3 * (Px^2 *t^4 + 3 * Py^2 * w^4)/ (D0 * E * t^5 * w^6 * sqrt(Py^2/t^4 + Px^2/w^4));
         DG(2)=-4 * L^3 * (3 * Px^2 * t^4 + Py^2 * w^4) / (D0 * E * t^6 * w^5 * sqrt(Py^2/t^4 + Px^2/w^4));
         
